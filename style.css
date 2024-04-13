@@ -1,0 +1,825 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Figtree:ital,wght@0,700;1,600&family=Poppins:wght@300&display=swap');
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+}
+
+body {
+      width: 100%;
+      height: 100vh;
+      background-color: #121213;
+      display: grid;
+      place-items: center;
+      font-family: Poppins, sans-serif;
+      color: #fff;
+
+}
+
+header {
+      position: relative;
+      width: 90%;
+      height: 95%;
+      /* border: 1px solid #fff; */
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+}
+
+header .leftside_box,
+.rightside_box_song {
+      width: 25%;
+      height: 90%;
+      /* border: 1px solid #fff; */
+      background: #111727;
+      box-shadow: 5px 0px 12px #090f1f;
+}
+
+header .rightside_box_song {
+      width: 75%;
+      background: #0b1320;
+      overflow-y: auto;
+}
+header .rightside_box_song::-webkit-scrollbar {
+     display: none;
+}
+
+header .master_song {
+      /* border: 1px solid #fff; */
+      width: 100%;
+      height: 11%;
+      background: #111727;
+      box-shadow: 0px 5px 8px #090f1f;
+}
+
+header .leftside_box h1 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 15px 0px 0px 20px;
+}
+
+header .leftside_box .playlist {
+      margin: 2cqh 0px 0px 20px;
+}
+
+header .leftside_box .playlist h4 {
+      font-size: 14px;
+      font-weight: 400;
+      padding: 5px;
+      color: #4c5262;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+}
+header .leftside_box .playlist h4:hover {
+      color: #fff;
+}
+
+header .leftside_box .playlist h4 span {
+      position: relative;
+      margin-right: 30px;
+}
+
+header .leftside_box .playlist h4 span::before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border: 2px solid #4c5262;
+      top: -5px;
+      border-radius: 50%;
+
+}
+
+header .leftside_box .playlist h4:hover span::before {
+      border: 2px solid #fff;
+
+}
+
+header .leftside_box .playlist .fa-solid {
+      margin-right: 10px;
+      display: none;
+}
+
+header .leftside_box .playlist .active {
+      color: #36e2ec;
+}
+
+header .leftside_box .playlist .active span {
+      display: none;
+}
+
+header .leftside_box .playlist .active .fa-solid {
+      display: flex;
+}
+
+header .leftside_box .leftside_song {
+      width: 100%;
+      height: 420px;
+      /* border: 1px solid #fff;    */
+      margin-top: 20px;
+      overflow: auto;
+}
+
+header .leftside_box .leftside_song::-webkit-scrollbar {
+      display: none;
+}
+
+header .leftside_box .leftside_song li {
+      list-style: none;
+      position: relative;
+      padding: 5px 0px 5px 20px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+}
+
+header .leftside_box .leftside_song li:hover{
+     background:rgba(110, 110, 110, 0.1);
+}
+
+header .leftside_box .leftside_song li span {
+      font-size: 14px;
+      color: #4c5262;
+}
+
+header .leftside_box .leftside_song li img {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      border-radius: 50%;
+}
+
+header .leftside_box .leftside_song li h5 {
+      font-size: 0.8rem;
+      margin-left: 10px;
+      font-weight: 300;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 200px;
+      white-space: nowrap;
+      color: #fff;
+}
+
+header .leftside_box .leftside_song li .subtitle {
+      font-size: 0.7rem;
+      color: #4c5262;
+      font-weight: 300;
+}
+
+header .leftside_box .leftside_song li i {
+      position: absolute;
+      right: 15px;
+      font-size: 1.2rem;
+}
+
+header .master_song {
+      display: flex;
+      padding: 0 20px;
+      align-items: center;
+      position: relative;
+
+}
+
+header .master_song .wave {
+      /* position: relative; */
+      width: 30px;
+      height: 30px;
+      /* border: 1px solid #fff; */
+      display: flex;
+      margin-right: 10px;
+      padding-bottom: 5px;
+      align-items: flex-end;
+
+
+}
+
+header .master_song .wave .Wave1 {
+      width: 3px;
+      height: 8px;
+      background: #36e2ec;
+      border-radius: 10px 10px 0px 0px;
+      margin-right: 3px;
+      animation: unset;
+}
+
+header .master_song .wave .Wave1:nth-child(2) {
+      height: 12px;
+      margin-right: 3px;
+      animation-delay: 0.4s;
+}
+
+header .master_song .wave .Wave1:nth-child(3) {
+      height: 8px;
+      animation-delay: 0.3s;
+}
+/* javascript classes  for music play and paused  */
+
+header .master_song .active1 .Wave1 {
+     animation: wave 0.5s linear infinite;
+}
+
+header .master_song .active1 .Wave1:nth-child(2) {
+     animation-delay: 0.4s;
+}
+
+header .master_song .active1 .Wave1:nth-child(3) {
+      animation-delay: 0.3s;
+}
+
+
+@keyframes wave {
+      0% {
+            height: 10px;
+      }
+
+      50% {
+            height: 15px;
+      }
+
+      100% {
+            height: 10px;
+      }
+}
+
+header .master_song img {
+      width: 30px;
+      height: 30px;
+}
+
+header .master_song h5 {
+      margin-left: 10px;
+      line-height: 15px;
+      width: 120px;
+      /* border: 1px solid #fff; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 400;
+      font-size: 14px;
+}
+
+header .master_song .sub-title {
+      font-size: 12px;
+      color: #4c5262;
+}
+
+header .master_song .icons {
+      font-size: 18px;
+      color: #fff;
+      margin: 0px 20px 0px 40px;
+      outline: none;
+}
+
+header .master_song .icons i {
+      cursor: pointer;
+      outline: none;
+      font-size: 18px;
+}
+
+header .master_song .icons .fa-solid:nth-child(3) {
+      padding: 2px 5px 0px 7px;
+      margin: 0px 10px;
+      font-size: 15px;
+}
+
+header .master_song .icons #shuffle {
+      font-size: 18px;
+      text-transform: lowercase;
+      margin-right: 10px;
+      overflow: hidden;
+      width: 17.5px;
+    
+}
+
+header .master_song #download_music {
+      margin-left: 10px;
+      font-size: 20px
+}
+
+header .master_song span {
+      font-size: 14px;
+      color: #4c5262;
+      font-weight: 400;
+}
+
+header .master_song #currentStartTime {
+      margin: 0px 0px 0px 20px;
+
+}
+
+header .master_song #currentEndTime {
+      margin: 0px 0px 0px 10px;
+
+}
+
+header .master_song .progress-bar {
+      position: relative;
+      width: 45%;
+      height: 5px;
+      background: rgb(105, 105, 170, 0.3);
+      /* margin: 0px 10px 0px 10px; */
+      margin-left: 10px;
+}
+
+header .master_song .progress-bar .bar2 {
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      background: #36e2ec;
+      top: 0;
+      left: 0;
+      transition: 0.3s linear;
+}
+
+header .master_song .progress-bar .dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background: #36e2ec;
+      top: 0px;
+      left: 0;
+}
+
+header .master_song .progress-bar .dot::before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #36e2ec;
+      border-radius: 50%;
+      top: -7px;
+      left: -7px;
+      box-shadow: inset 0px 0px 3px #36e2ec;
+}
+
+header .master_song .progress-bar input {
+      position: absolute;
+      width: 100%;
+      top: -6px;
+      left: -3px;
+      /* z-index: 9999999999999; */
+      opacity: 0;
+      cursor: pointer;
+}
+
+header .master_song .music_vol {
+      position: relative;
+      width: 100px;
+      height: 2px;
+      background: rgb(105, 105, 170, 0.3);
+      color: #fff;
+      margin-left: 50px;
+}
+
+header .master_song .music_vol .fa-solid {
+      color: #fff;
+      position: absolute;
+      font-size: 20px;
+      top: -10px;
+      left: -30px;
+}
+
+header .master_song .music_vol input {
+      position: absolute;
+      width: 100%;
+      top: -8px;
+      left: 0px;
+      /* z-index:-1; */
+      opacity: 0;
+      cursor: pointer;
+}
+
+header .master_song .music_vol #vol_bar {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #36e2ec;
+      top: 0;
+      transition: 1s linear;  
+      left: 0px;
+}
+
+header .master_song .music_vol .dot {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #36e2ec;
+      top: -1px;
+      border-radius: 50%;
+      left: 100%;
+}
+
+header .master_song .music_vol .dot::before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #36e2ec;
+      border-radius: 50%;
+      top: -8px;
+      left: -7px;
+      box-shadow: inset 0px 0px 3px #36e2ec;
+}
+
+
+/* start Rightside box  */
+header .rightside_box_song{
+      z-index: 2;
+}
+header .rightside_box_song::before {
+      content: '';
+      position: absolute;
+      background: url("Assets/bg.png");
+      width: 100%;
+      height: 300px;
+      z-index: -1;
+}
+
+header .rightside_box_song nav {
+      width: 90%;
+      height: 10%;
+      /* border: 1px solid #fff; */
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* box-shadow: 2px 5px 2px rgb(17, 17, 17); */
+}
+
+
+header .rightside_box_song nav ul {
+      display: flex;
+      position: relative;
+}
+
+header .rightside_box_song nav ul li {
+      position: relative;
+      list-style-type: none;
+      margin-right: 20px;
+      color: #4c5262;
+      font-size: 14;
+      cursor: pointer;
+      transition: 0.3s linear;
+}
+
+header .rightside_box_song nav ul li:hover {
+      color: #fff;
+}
+
+header .rightside_box_song nav ul li:nth-child(1) {
+      color: #fff;
+}
+
+header .rightside_box_song nav ul li span {
+      width: 100%;
+      height: 2px;
+      border: 1px solid #fff;
+      position: absolute;
+      top: 22px;
+      left: 0;
+}
+
+header .rightside_box_song nav .search {
+      position: relative;
+      width: 40%;
+      /* border: 1px solid #fff; */
+      padding: 1px 15px;
+      border-radius: 20px;
+      /* background: #2c2c2c;  */
+      margin-left: 5%;
+}
+header .rightside_box_song nav .search i{
+      position: relative;
+     left: 10px;
+     font-size: 15px;
+}
+header .rightside_box_song nav .search .search_results{
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    /* border: 1px solid #fff; */
+    margin-top: 18px;
+    border-radius: 10px;
+    flex-flow: column;
+    overflow: auto ;
+}
+header .rightside_box_song nav .search .search_results::-webkit-scrollbar{
+    display: none;
+   
+}
+header .rightside_box_song nav .search .search_results .card{
+   width: 100%;
+   min-height: 45px;
+   /* border: 1px solid #fff; */
+   background:rgba(110, 110, 110, 0.2);
+   display: flex;
+   align-items: center;
+   margin-bottom: 5px;
+   text-decoration: none;
+   /* flex-direction: column; */
+   color: #fff;
+   display: none;
+}
+header .rightside_box_song nav .search .search_results .card img{
+ width: 50px;
+ height: 50px;
+ border-radius: 5px;
+ padding: 5px;
+ border-radius: 50%;
+}
+header .rightside_box_song nav .search .search_results .card .Content{
+margin-left: 10px;
+font-size: 15px;
+font-weight: 300;
+}
+header .rightside_box_song nav .search .search_results .card .Content .sub-title{
+font-size: 12px;
+color: #4c5262;
+font-weight: 700;
+}
+
+
+header .rightside_box_song nav .search::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(184, 184, 184, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      z-index: -1;
+}
+
+header .rightside_box_song nav .search input {
+      background: transparent;
+      padding: 1px 8px;
+      border: none;
+      outline: none;
+      color: #fff;
+      margin: 0px 10px;
+      cursor: pointer;
+      margin-top: 10px;
+}
+
+header .rightside_box_song nav .search input::placeholder {
+      font-size: 18px;
+}
+
+header .rightside_box_song nav .search input:focus {
+      width: 50%;
+}
+
+header .rightside_box_song nav .user {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      margin-right: -2px;
+}
+
+header .rightside_box_song nav .user img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      z-index: 1
+}
+
+header .rightside_box_song .content {
+      width: 90%;
+      height: min-content;
+      /* border: 1px solid #fff; */
+      margin: auto;
+      padding: 20px 0px;
+}
+
+header .rightside_box_song .content h1 {
+      font-size: 25px;
+      font-weight: bold;
+}
+
+header .rightside_box_song .content p {
+      width: 450px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #4c5262;
+      margin: 10px 0px;
+      /* border: 1px solid #fff; */
+}
+
+header .rightside_box_song .content .buttons {
+      margin-top: 20px;
+}
+
+header .rightside_box_song .content .buttons button {
+      width: 130px;
+      height: 30px;
+      border: 2px solid #36e2ec;
+      outline: none;
+      border-radius: 20px;
+      background: #5adae0;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s linear;
+}
+
+header .rightside_box_song .content .buttons button:hover {
+      background: none;
+      color: #36e2ec;
+}
+
+header .rightside_box_song .content .buttons button:nth-child(2) {
+      background: none;
+      color: #36e2ec;
+}
+
+header .rightside_box_song .content .buttons button:nth-child(2):hover {
+      background: #36e2ec;
+      color: #fff;
+
+}
+
+header .rightside_box_song .popular-songs, .popular-Artists {
+      width: 90%;
+      height: auto;
+      /* border: 1px solid #fff; */
+      margin: auto;
+      margin-top: 10px;
+}
+
+header .rightside_box_song .popular-songs .popular-song-title,
+header .rightside_box_song .popular-Artists .popular-Artist-title
+{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+header .rightside_box_song .popular-songs .popular-song-title .left_right_btn i ,
+header .rightside_box_song .popular-Artists .popular-Artist-title .left_right_btn i{
+      cursor: pointer;
+      margin-left: 10px;
+      color: #4c5262;
+}
+
+header .rightside_box_song .popular-songs .popular-song-title .left_right_btn i:hover,
+header .rightside_box_song .popular-Artists  .popular-Artist-title .left_right_btn i:hover{
+      color: #fff;
+}
+
+header .rightside_box_song .popular-songs h4 ,
+header .rightside_box_song .popular-Artists h4{
+      font-size: 18px;
+      font-weight: 400;
+}
+
+header .rightside_box_song .popular-songs .popular_song_list {
+      width: 100%;
+      height: 180px;
+      /* border: 1px solid #fff; */
+      margin-top: 15px;
+      display: flex;
+      /* border: 1px solid #fff; */
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+}
+header .rightside_box_song .popular-songs .popular_song_list::-webkit-scrollbar{
+    display: none;
+}
+
+header .rightside_box_song .popular-songs .popular_song_list .song_item {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      min-width: 130px;
+      height: 100%;
+      /* border: 1px solid #fff; */
+      transition: 0.3s linear;
+      margin-right: 10px;
+      gap: 5px;
+}
+
+header .rightside_box_song .popular-songs .popular_song_list .song_item:hover {
+      background: rgba(184, 184, 184, 0.1);
+}
+
+header .rightside_box_song .popular-songs .popular_song_list .song_item .image_song {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 130px;
+}
+
+header .rightside_box_song .popular-songs .popular_song_list .song_item .image_song .fa-solid {
+      position: absolute;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s linear;
+      opacity: 0;
+}
+header .rightside_box_song .popular-songs .popular_song_list .song_item:hover .image_song .fa-solid{
+      opacity: 1;
+}
+
+header .rightside_box_song .popular-songs .popular_song_list .song_item .image_song img {
+      width: 100%;
+      height: 100%;
+      /* border: 1px solid #fff; */
+}
+header .rightside_box_song .popular-songs .popular_song_list .song_item h5 {
+      color: #fff;
+     font-size: 15px;
+     font-weight: 700;
+     overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #fff;
+}
+
+header .rightside_box_song .popular-songs .popular_song_list .song_item .sub_title{
+     font-size: 11px;
+     font-weight: 500;
+     color: #4c5262;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+}
+/* popular Artist */
+header .rightside_box_song .popular-Artists .popular-Artist-List {
+      width: 100%;
+      height: auto;
+      /* border: 1px solid #fff; */
+      margin-top: 15px;
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+}
+header .rightside_box_song .popular-Artists .popular-Artist-List::-webkit-scrollbar {
+     display: none;
+}
+header .rightside_box_song .popular-Artists .popular-Artist-List  li{
+      position: relative;
+    list-style-type: none;
+    min-width: 80px;
+    height: 80px;
+    /* border: 1px solid #fff; */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    transition: 0.3s linear;
+}
+
+header .rightside_box_song .popular-Artists .popular-Artist-List  li img{ 
+      position:absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      left: 0;
+      top: 0;
+}
+
+header .rightside_box_song .popular-Artists .popular-Artist-List  li img :hover{
+      background-color: rgba(184, 184, 184, 0.1);
+   }
+header .rightside_box_song .popular-Artists .popular-Artist-List  li i{
+      position: absolute;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.3s linear;
+      opacity: 0;
+}
+header .rightside_box_song .popular-Artists .popular-Artist-List  li i:hover{
+      opacity: 1;
+}
+header .rightside_box_song .popular-Artists .popular-Artist-List  .song_item .image_song  img {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #fff;
+}
+
+/* media queries */
+@media screen and (max-width:1420px) {
+      header .master_song .icons {
+            margin: 0 8px 0px 40px;
+            background-color: red;
+         
+        }
+}
+@media screen and (max-width:1150px) {
+      header{
+            width: 95%;
+            background-color: #36e2ec;
+
+          
+        }
+   }
